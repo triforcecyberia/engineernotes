@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>EngRef — Инженерный справочник</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EngRef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#home" data-page="home">ENG<span>REF</span></a>
+    <nav class="main-nav">
+      <a class="nav-link" href="#home" data-page="home">Главная</a>
+      <a class="nav-link" href="#degrees" data-page="degrees">Углы</a>
+      <a class="nav-link" href="#triangle" data-page="triangle">Треугольник</a>
+      <a class="nav-link" href="#taper" data-page="taper">Конус</a>
+      <a class="nav-link" href="#roughness" data-page="roughness">Шероховатость</a>
+      <a class="nav-link" href="#hardness" data-page="hardness">Твёрдость</a>
+      <a class="nav-link" href="#inserts" data-page="inserts">Пластины</a>
+      <a class="nav-link" href="#pipe" data-page="pipe">Трубная резьба</a>
+      <a class="nav-link" href="#cnc" data-page="cnc">ЧПУ Макросы</a>
+      <a class="nav-link" href="#cutting" data-page="cutting">Режимы резания</a>
+      <a class="nav-link" href="#thread" data-page="thread">Метрическая резьба</a>
+      <a class="nav-link" href="#fits" data-page="fits">Допуски и посадки</a>
+      <a class="nav-link" href="#speeds" data-page="speeds">Об. мин ↔ м/мин</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE: HOME ===== -->
+<div id="home" class="page">
+  <div style="padding-top:0.5rem; margin-bottom:1.5rem;">
+    <div style="font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono); margin-bottom:0.3rem;">// инженерный справочник</div>
+    <h1 class="page-title" style="font-size:1.6rem;">Инструменты и памятки</h1>
+    <p class="page-sub">Быстрый доступ к калькуляторам и справочным таблицам для машиностроения</p>
+  </div>
+  <div class="home-grid">
+    <a class="home-card" href="#degrees" data-page="degrees">
+      <div class="home-card-icon">°</div>
+      <div class="home-card-title">Перевод углов</div>
+      <div class="home-card-desc">Градусы ↔ Десятичные. Формула из Excel</div>
+    </a>
+    <a class="home-card" href="#triangle" data-page="triangle">
+      <div class="home-card-icon">△</div>
+      <div class="home-card-title">Прямоугольный треугольник</div>
+      <div class="home-card-desc">Катеты, гипотенуза, sin/cos/tg</div>
+    </a>
+    <a class="home-card" href="#taper" data-page="taper">
+      <div class="home-card-icon">▷</div>
+      <div class="home-card-title">Конус / уклон</div>
+      <div class="home-card-desc">Угол конуса, уклон, отношение</div>
+    </a>
+    <a class="home-card" href="#roughness" data-page="roughness">
+      <div class="home-card-icon">≈</div>
+      <div class="home-card-title">Шероховатость</div>
+      <div class="home-card-desc">ГОСТ ↔ ISO 1302, Ra/Rz, классы</div>
+    </a>
+    <a class="home-card" href="#hardness" data-page="hardness">
+      <div class="home-card-icon">◆</div>
+      <div class="home-card-title">Твёрдость</div>
+      <div class="home-card-desc">HV ↔ HB ↔ HRC/HRB ↔ МПа</div>
+    </a>
+    <a class="home-card" href="#inserts" data-page="inserts">
+      <div class="home-card-icon">⬡</div>
+      <div class="home-card-title">Пластины ISO</div>
+      <div class="home-card-desc">Расшифровка маркировки сменных пластин</div>
+    </a>
+    <a class="home-card" href="#pipe" data-page="pipe">
+      <div class="home-card-icon">⌀</div>
+      <div class="home-card-title">Трубная резьба</div>
+      <div class="home-card-desc">Диаметры сверления, шаг, глубина</div>
+    </a>
+    <a class="home-card" href="#cnc" data-page="cnc">
+      <div class="home-card-icon">#</div>
+      <div class="home-card-title">ЧПУ Макросы</div>
+      <div class="home-card-desc">Функции, операторы, переменные Fanuc</div>
+    </a>
+    <a class="home-card" href="#cutting" data-page="cutting">
+      <div class="home-card-icon">⚙</div>
+      <div class="home-card-title">Режимы резания</div>
+      <div class="home-card-desc">Скорость, подача, глубина, мощность</div>
+    </a>
+    <a class="home-card" href="#thread" data-page="thread">
+      <div class="home-card-icon">M</div>
+      <div class="home-card-title">Метрическая резьба</div>
+      <div class="home-card-desc">Диаметры сверления под нарезание</div>
+    </a>
+    <a class="home-card" href="#fits" data-page="fits">
+      <div class="home-card-icon">⊕</div>
+      <div class="home-card-title">Допуски и посадки</div>
+      <div class="home-card-desc">Квалитеты, отклонения, поля допусков</div>
+    </a>
+    <a class="home-card" href="#speeds" data-page="speeds">
+      <div class="home-card-icon">↻</div>
+      <div class="home-card-title">Об/мин ↔ м/мин</div>
+      <div class="home-card-desc">Пересчёт оборотов и скоростей по диаметру</div>
+    </a>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: DEGREES ===== -->
+<div id="degrees" class="page">
+  <h1 class="page-title">Перевод углов</h1>
+  <p class="page-sub">Формула: Десятичные = Градусы + Минуты/60 + Секунды/3600</p>
+
+  <div class="card">
+    <div class="card-title">Градусы / Минуты / Секунды → Десятичные</div>
+    <div class="formula">
+      <b>α°</b> = Градусы + Минуты/60 + Секунды/3600
+    </div>
+    <div class="field-group">
+      <div class="field">
+        <label>Градусы °</label>
+        <input type="number" id="deg-d" placeholder="1" min="0">
+      </div>
+      <div class="field">
+        <label>Минуты '</label>
+        <input type="number" id="deg-m" placeholder="29" min="0" max="59">
+      </div>
+      <div class="field">
+        <label>Секунды "</label>
+        <input type="number" id="deg-s" placeholder="15" min="0" max="59" step="0.1">
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calcDegToDecimal()">Рассчитать</button>
+      <button class="btn btn-ghost" onclick="$('deg-d').value='';$('deg-m').value='';$('deg-s').value='';$('deg-result-box').classList.remove('visible')">Сброс</button>
+    </div>
+    <div id="deg-result-box" class="result-box">
+      <div class="result-label">Результат в десятичных градусах</div>
+      <div class="result-value" id="deg-result">—</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Десятичные → Градусы / Минуты / Секунды</div>
+    <div class="field-group" style="grid-template-columns:1fr">
+      <div class="field">
+        <label>Десятичные градусы</label>
+        <input type="number" id="decimal-in" placeholder="1.487500" step="0.000001">
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calcDecimalToDeg()">Рассчитать</button>
+    </div>
+    <div id="dec-result-box" class="result-box">
+      <div class="result-label">Результат</div>
+      <div class="result-value" id="dec-result">—</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: TRIANGLE ===== -->
+<div id="triangle" class="page">
+  <h1 class="page-title">Прямоугольный треугольник</h1>
+  <p class="page-sub">Расчёт катетов, гипотенузы и углов</p>
+
+  <!-- SVG Diagram -->
+  <div class="card" style="padding:1rem 1rem 0.5rem">
+    <svg class="diagram-svg" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="20" x2="30" y2="150" stroke="#2e3348" stroke-width="2"/>
+      <line x1="30" y1="150" x2="250" y2="150" stroke="#2e3348" stroke-width="2"/>
+      <line x1="30" y1="20" x2="250" y2="150" stroke="#f5a623" stroke-width="2"/>
+      <!-- right angle -->
+      <rect x="30" y="135" width="15" height="15" fill="none" stroke="#8a90a8" stroke-width="1.5"/>
+      <!-- labels -->
+      <text x="14" y="90" font-size="14" fill="#f5a623" font-family="JetBrains Mono,monospace" font-weight="700">a</text>
+      <text x="135" y="168" font-size="14" fill="#f5a623" font-family="JetBrains Mono,monospace" font-weight="700">b</text>
+      <text x="148" y="82" font-size="14" fill="#e8eaf0" font-family="JetBrains Mono,monospace" font-weight="700">c</text>
+      <!-- angles -->
+      <text x="18" y="26" font-size="11" fill="#8a90a8" font-family="JetBrains Mono,monospace">B</text>
+      <text x="233" y="148" font-size="11" fill="#8a90a8" font-family="JetBrains Mono,monospace">A</text>
+      <text x="18" y="162" font-size="11" fill="#8a90a8" font-family="JetBrains Mono,monospace">C</text>
+      <!-- angle arc alpha -->
+      <path d="M 230,150 A 20,20 0 0,0 237,132" stroke="#f5a623" fill="none" stroke-width="1.5"/>
+      <text x="215" y="140" font-size="11" fill="#f5a623" font-family="JetBrains Mono,monospace">α</text>
+      <!-- angle arc beta -->
+      <path d="M 30,35 A 20,20 0 0,1 45,28" stroke="#8a90a8" fill="none" stroke-width="1.5"/>
+      <text x="50" y="38" font-size="11" fill="#8a90a8" font-family="JetBrains Mono,monospace">β</text>
+    </svg>
+    <div class="chip-row" style="justify-content:center">
+      <span class="chip">sin α = <b>a/c</b></span>
+      <span class="chip">cos α = <b>b/c</b></span>
+      <span class="chip">tg α = <b>a/b</b></span>
+      <span class="chip">a² + b² = <b>c²</b></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Калькулятор</div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-group="tri" data-tab="tri-hyp">c + α</button>
+      <button class="tab-btn" data-group="tri" data-tab="tri-legs">a + b</button>
+      <button class="tab-btn" data-group="tri" data-tab="tri-leg-hyp">a + c</button>
+      <button class="tab-btn" data-group="tri" data-tab="tri-leg-angle">a + α</button>
+    </div>
+
+    <div id="tri-hyp" class="tab-content active" data-group="tri">
+      <p style="font-size:0.78rem;color:var(--text-dim);margin-bottom:0.75rem">Известны: гипотенуза <b>c</b> и угол <b>α</b></p>
+      <div class="field-group">
+        <div class="field"><label>Гипотенуза c</label><input type="number" id="tri-c" placeholder="100" step="0.001"></div>
+        <div class="field"><label>Угол α (°)</label><input type="number" id="tri-alpha" placeholder="30" step="0.0001"></div>
+      </div>
+    </div>
+
+    <div id="tri-legs" class="tab-content" data-group="tri">
+      <p style="font-size:0.78rem;color:var(--text-dim);margin-bottom:0.75rem">Известны: катеты <b>a</b> и <b>b</b></p>
+      <div class="field-group">
+        <div class="field"><label>Катет a</label><input type="number" id="tri-a2" placeholder="50" step="0.001"></div>
+        <div class="field"><label>Катет b</label><input type="number" id="tri-b2" placeholder="86.6" step="0.001"></div>
+      </div>
+    </div>
+
+    <div id="tri-leg-hyp" class="tab-content" data-group="tri">
+      <p style="font-size:0.78rem;color:var(--text-dim);margin-bottom:0.75rem">Известны: катет <b>a</b> и гипотенуза <b>c</b></p>
+      <div class="field-group">
+        <div class="field"><label>Катет a</label><input type="number" id="tri-a3" placeholder="50" step="0.001"></div>
+        <div class="field"><label>Гипотенуза c</label><input type="number" id="tri-c3" placeholder="100" step="0.001"></div>
+      </div>
+    </div>
+
+    <div id="tri-leg-angle" class="tab-content" data-group="tri">
+      <p style="font-size:0.78rem;color:var(--text-dim);margin-bottom:0.75rem">Известны: катет <b>a</b> и угол <b>α</b></p>
+      <div class="field-group">
+        <div class="field"><label>Катет a</label><input type="number" id="tri-a4" placeholder="50" step="0.001"></div>
+        <div class="field"><label>Угол α (°)</label><input type="number" id="tri-alpha4" placeholder="30" step="0.0001"></div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calcTriangle()">Рассчитать</button>
+    </div>
+
+    <div id="tri-result-box" class="result-box">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">Катет a</div><div class="result-value" id="res-a">—</div></div>
+        <div class="result-item"><div class="result-label">Катет b</div><div class="result-value" id="res-b">—</div></div>
+        <div class="result-item"><div class="result-label">Гипотенуза c</div><div class="result-value" id="res-c">—</div></div>
+        <div class="result-item"><div class="result-label">Угол α</div><div class="result-value" id="res-alpha">—</div></div>
+        <div class="result-item"><div class="result-label">Угол β</div><div class="result-value" id="res-beta">—</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: TAPER ===== -->
+<div id="taper" class="page">
+  <h1 class="page-title">Конус / Уклон</h1>
+  <p class="page-sub">Расчёт угла конуса и уклона</p>
+
+  <div class="card">
+    <div class="card-title">Угол конуса по диаметрам</div>
+    <div class="formula">
+      α/2 = <b>arctg((D − d) / (2 × L))</b>
+    </div>
+    <div class="field-group">
+      <div class="field"><label>Большой диаметр D (мм)</label><input type="number" id="taper-D" placeholder="50" step="0.001"></div>
+      <div class="field"><label>Малый диаметр d (мм)</label><input type="number" id="taper-d" placeholder="30" step="0.001"></div>
+      <div class="field"><label>Длина L (мм)</label><input type="number" id="taper-L" placeholder="100" step="0.001"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calcTaper()">Рассчитать</button>
+    </div>
+    <div id="taper-result-box" class="result-box">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">Полуугол конуса α/2</div><div class="result-value" id="taper-half">—</div></div>
+        <div class="result-item"><div class="result-label">Полный угол α</div><div class="result-value" id="taper-full">—</div></div>
+        <div class="result-item"><div class="result-label">Уклон</div><div class="result-value" id="taper-ratio">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Большой диаметр по малому + углу</div>
+    <div class="formula">
+      D = <b>d + 2 × L × tg(α/2)</b>
+    </div>
+    <div class="field-group">
+      <div class="field"><label>Малый диаметр d (мм)</label><input type="number" id="taper-d-small" placeholder="30" step="0.001"></div>
+      <div class="field"><label>Полный угол конуса α (°)</label><input type="number" id="taper-angle" placeholder="11.42" step="0.0001"></div>
+      <div class="field"><label>Длина L (мм)</label><input type="number" id="taper-L2" placeholder="100" step="0.001"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calcTaperReverse()">Рассчитать</button>
+    </div>
+    <div id="taper-rev-result-box" class="result-box">
+      <div class="result-label">Большой диаметр D</div>
+      <div class="result-value" id="taper-D-res">—</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Стандартные конуса Морзе</div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Конус</th><th>D (мм)</th><th>d (мм)</th><th>L (мм)</th><th>Уклон</th><th>α</th></tr></thead>
+        <tbody>
+          <tr><td class="highlight">Морзе 0</td><td>9.045</td><td>6.401</td><td>56.3</td><td>1:19.212</td><td>2.982°</td></tr>
+          <tr><td class="highlight">Морзе 1</td><td>12.240</td><td>9.002</td><td>62.0</td><td>1:20.047</td><td>2.861°</td></tr>
+          <tr><td class="highlight">Морзе 2</td><td>17.980</td><td>14.000</td><td>74.9</td><td>1:20.020</td><td>2.864°</td></tr>
+          <tr><td class="highlight">Морзе 3</td><td>23.825</td><td>19.100</td><td>93.7</td><td>1:19.922</td><td>2.877°</td></tr>
+          <tr><td class="highlight">Морзе 4</td><td>31.267</td><td>25.150</td><td>117.6</td><td>1:19.254</td><td>2.977°</td></tr>
+          <tr><td class="highlight">Морзе 5</td><td>44.399</td><td>36.530</td><td>152.4</td><td>1:19.002</td><td>3.011°</td></tr>
+          <tr><td class="highlight">Морзе 6</td><td>63.348</td><td>52.400</td><td>209.6</td><td>1:19.180</td><td>2.984°</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: ROUGHNESS ===== -->
+<div id="roughness" class="page">
+  <h1 class="page-title">Шероховатость поверхности</h1>
+  <p class="page-sub">Таблица соответствия по ГОСТ 2789-73, ГОСТ (отменён), ISO 1302, ISO4287-1997</p>
+
+  <div class="card" style="padding:0">
+    <div style="padding:1rem 1rem 0.75rem">
+      <div class="card-title" style="margin-bottom:0">Таблица соответствия</div>
+    </div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Класс (ГОСТ)</th>
+            <th>ISO 1302</th>
+            <th>Ra, мкм (ГОСТ)</th>
+            <th>Rz, мкм (ГОСТ)</th>
+            <th>Ra, мкм (ISO4287)</th>
+            <th>5×Ra</th>
+            <th>8×Ra (Rmax)</th>
+          </tr>
+        </thead>
+        <tbody id="roughness-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Типичные применения Ra</div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Ra, мкм</th><th>Применение</th></tr></thead>
+        <tbody>
+          <tr><td class="highlight">50 – 25</td><td>Черновая обработка, поверхности без требований</td></tr>
+          <tr><td class="highlight">12.5 – 6.3</td><td>Получистовая обработка, видимые поверхности</td></tr>
+          <tr><td class="highlight">3.2 – 1.6</td><td>Чистовая обработка, сопряжённые поверхности</td></tr>
+          <tr><td class="highlight">0.8 – 0.4</td><td>Точное сопряжение, подшипниковые посадки</td></tr>
+          <tr><td class="highlight">0.2 – 0.1</td><td>Шлифование, хонингование, прецизионные детали</td></tr>
+          <tr><td class="highlight">0.05 – 0.025</td><td>Суперфиниш, оптические поверхности</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: HARDNESS ===== -->
+<div id="hardness" class="page">
+  <h1 class="page-title">Твёрдость металлов</h1>
+  <p class="page-sub">Сравнение по шкалам Виккерс, Бринелль, Роквелл, σ<sub>в</sub></p>
+
+  <div class="card">
+    <div class="card-title">Конвертер по HV</div>
+    <div class="field-group" style="grid-template-columns:1fr">
+      <div class="field">
+        <label>Твёрдость по Виккерсу HV</label>
+        <input type="number" id="hv-input" placeholder="200" min="100" max="470">
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calcHardnessConvert()">Конвертировать</button>
+    </div>
+    <div id="hardness-conv-box" class="result-box">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">HV (Виккерс)</div><div class="result-value" id="conv-hv">—</div></div>
+        <div class="result-item"><div class="result-label">HB (Бринелль)</div><div class="result-value" id="conv-hb">—</div></div>
+        <div class="result-item"><div class="result-label">HR (Роквелл)</div><div class="result-value" id="conv-hr">—</div></div>
+        <div class="result-item"><div class="result-label">σ<sub>в</sub></div><div class="result-value" id="conv-mpa">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0">
+    <div style="padding:1rem 1rem 0.75rem">
+      <div class="card-title" style="margin-bottom:0.5rem">Полная таблица</div>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="hardness-search" placeholder="Поиск по значению..." oninput="searchHardness()">
+      </div>
+    </div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>HV (Виккерс)</th>
+            <th>HB (Бринелль)</th>
+            <th>HR (Роквелл)</th>
+            <th>σ<sub>в</sub>, МПа</th>
+          </tr>
+        </thead>
+        <tbody id="hardness-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: INSERTS ===== -->
+<div id="inserts" class="page">
+  <h1 class="page-title">Маркировка режущих пластин ISO</h1>
+  <p class="page-sub">Расшифровка обозначения сменных пластин (пример: TNMG 22 04 08-DM)</p>
+
+  <div class="card">
+    <div class="card-title">Структура обозначения</div>
+    <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:700; color:var(--accent); letter-spacing:0.15em; margin-bottom:0.75rem; word-break:break-all">
+      T · N · M · G · 22 · 04 · 08 · (N) · – · DM
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.5rem">
+      <span class="chip"><b>1</b> Форма</span>
+      <span class="chip"><b>2</b> Задний угол</span>
+      <span class="chip"><b>3</b> Допуск</span>
+      <span class="chip"><b>4</b> Крепление</span>
+      <span class="chip"><b>5</b> Размер IC</span>
+      <span class="chip"><b>6</b> Толщина</span>
+      <span class="chip"><b>7</b> Радиус</span>
+      <span class="chip"><b>8</b> Доп. признак</span>
+      <span class="chip"><b>9</b> Производитель</span>
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-group="ins" data-tab="ins-shape">1. Форма</button>
+    <button class="tab-btn" data-group="ins" data-tab="ins-angle">2. Задний угол</button>
+    <button class="tab-btn" data-group="ins" data-tab="ins-tol">3. Допуск</button>
+    <button class="tab-btn" data-group="ins" data-tab="ins-fix">4. Крепление</button>
+  </div>
+
+  <div id="ins-shape" class="tab-content active" data-group="ins">
+    <div class="card" style="padding:0.75rem">
+      <div class="card-title">Форма пластины (позиция 1)</div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead><tr><th>Код</th><th>Форма</th><th>Угол при вершине</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">H</td><td>Шестиугольник</td><td>120°</td></tr>
+            <tr><td class="highlight">O</td><td>Восьмиугольник</td><td>135°</td></tr>
+            <tr><td class="highlight">P</td><td>Пятиугольник</td><td>108°</td></tr>
+            <tr><td class="highlight">S</td><td>Квадрат</td><td>90°</td></tr>
+            <tr><td class="highlight">T</td><td>Треугольник</td><td>60°</td></tr>
+            <tr><td class="highlight">C</td><td>Ромб</td><td>80°</td></tr>
+            <tr><td class="highlight">D</td><td>Ромб</td><td>55°</td></tr>
+            <tr><td class="highlight">E</td><td>Ромб</td><td>75°</td></tr>
+            <tr><td class="highlight">K</td><td>Ромб</td><td>55°</td></tr>
+            <tr><td class="highlight">M</td><td>Ромб</td><td>86°</td></tr>
+            <tr><td class="highlight">V</td><td>Ромб</td><td>35°</td></tr>
+            <tr><td class="highlight">W</td><td>Шестиугольник</td><td>80°</td></tr>
+            <tr><td class="highlight">R</td><td>Круглая</td><td>—</td></tr>
+            <tr><td class="highlight">L</td><td>Прямоугольник</td><td>90°</td></tr>
+            <tr><td class="highlight">A</td><td>Параллелограмм</td><td>85°</td></tr>
+            <tr><td class="highlight">B</td><td>Параллелограмм</td><td>82°</td></tr>
+            <tr><td class="highlight">Z</td><td colspan="2">Специальная</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="ins-angle" class="tab-content" data-group="ins">
+    <div class="card" style="padding:0.75rem">
+      <div class="card-title">Задний угол (позиция 2)</div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead><tr><th>Код</th><th>Задний угол</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">A</td><td>3°</td></tr>
+            <tr><td class="highlight">B</td><td>5°</td></tr>
+            <tr><td class="highlight">C</td><td>7°</td></tr>
+            <tr><td class="highlight">D</td><td>15°</td></tr>
+            <tr><td class="highlight">E</td><td>20°</td></tr>
+            <tr><td class="highlight">F</td><td>25°</td></tr>
+            <tr><td class="highlight">G</td><td>30°</td></tr>
+            <tr><td class="highlight">N</td><td>0°</td></tr>
+            <tr><td class="highlight">P</td><td>11°</td></tr>
+            <tr><td class="highlight">O</td><td>Специальный</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="ins-tol" class="tab-content" data-group="ins">
+    <div class="card" style="padding:0.75rem">
+      <div class="card-title">Класс допуска (позиция 3)</div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead><tr><th>Код</th><th>IC (мм)</th><th>m (мм)</th><th>S (мм)</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">A</td><td>±0.025</td><td>±0.005</td><td>±0.025</td></tr>
+            <tr><td class="highlight">C</td><td>±0.025</td><td>±0.013</td><td>±0.025</td></tr>
+            <tr><td class="highlight">E</td><td>±0.025</td><td>±0.025</td><td>±0.025</td></tr>
+            <tr><td class="highlight">F</td><td>±0.013</td><td>±0.005</td><td>±0.025</td></tr>
+            <tr><td class="highlight">G</td><td>±0.025</td><td>±0.025</td><td>±0.130</td></tr>
+            <tr><td class="highlight">H</td><td>±0.013</td><td>±0.013</td><td>±0.025</td></tr>
+            <tr><td class="highlight">J</td><td>±0.05–0.15</td><td>±0.005</td><td>±0.025</td></tr>
+            <tr><td class="highlight">K</td><td>±0.05–0.15</td><td>±0.013</td><td>±0.025</td></tr>
+            <tr><td class="highlight">L</td><td>±0.05–0.15</td><td>±0.025</td><td>±0.025</td></tr>
+            <tr><td class="highlight">M</td><td>±0.05–0.15</td><td>±0.08–0.20</td><td>±0.130</td></tr>
+            <tr><td class="highlight">N</td><td>±0.05–0.15</td><td>±0.08–0.20</td><td>±0.025</td></tr>
+            <tr><td class="highlight">U</td><td>±0.08–0.25</td><td>±0.13–0.38</td><td>±0.130</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="ins-fix" class="tab-content" data-group="ins">
+    <div class="card" style="padding:0.75rem">
+      <div class="card-title">Тип крепления/стружкодробителя (позиция 4)</div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead><tr><th>Код</th><th>Тип</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">A</td><td>Без отверстия, без стружкодробителя</td></tr>
+            <tr><td class="highlight">B</td><td>Без отверстия, стружкодробитель с одной стороны</td></tr>
+            <tr><td class="highlight">C</td><td>Без отверстия, стружкодробитель с двух сторон</td></tr>
+            <tr><td class="highlight">F</td><td>Цилиндрическое отверстие, стружкодробитель (одна сторона)</td></tr>
+            <tr><td class="highlight">G</td><td>Цилиндрическое отверстие, стружкодробитель (обе стороны)</td></tr>
+            <tr><td class="highlight">H</td><td>Цилиндрическое отверстие 90°, без стружкодробителя</td></tr>
+            <tr><td class="highlight">J</td><td>Овальное отверстие, стружкодробитель > 65°</td></tr>
+            <tr><td class="highlight">M</td><td>Отверстие с фаской 40–60°, стружкодробитель (одна сторона)</td></tr>
+            <tr><td class="highlight">N</td><td>Без отверстия</td></tr>
+            <tr><td class="highlight">Q</td><td>Отверстие с фаской ≤65°</td></tr>
+            <tr><td class="highlight">R</td><td>Без отверстия, стружкодробитель ≤65°</td></tr>
+            <tr><td class="highlight">T</td><td>Отверстие + фаска ≤65°</td></tr>
+            <tr><td class="highlight">U</td><td>Овальное отверстие, стружкодробитель ≤65°</td></tr>
+            <tr><td class="highlight">W</td><td>Отверстие с фаской, без стружкодробителя ≤65°</td></tr>
+            <tr><td class="highlight">X</td><td>Специальное</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: PIPE THREAD ===== -->
+<div id="pipe" class="page">
+  <h1 class="page-title">Трубная коническая резьба</h1>
+  <p class="page-sub">Диаметры отверстий под нарезание резьбы NPT/BSP</p>
+
+  <div class="card">
+    <div class="card-title">Описание параметров</div>
+    <div class="chip-row">
+      <span class="chip"><b>d₀</b> = диам. с развёрт. на конус</span>
+      <span class="chip"><b>l</b> = глубина сверления</span>
+      <span class="chip"><b>d₁</b> = диам. без развёрт.</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0">
+    <div style="padding:1rem 1rem 0.5rem"><div class="card-title" style="margin-bottom:0">Таблица сверления</div></div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Резьба</th>
+            <th>Шагов на 1"</th>
+            <th>Шаг P, мм</th>
+            <th>Внутр. ⌀, мм</th>
+            <th>d₀ ном.</th>
+            <th>d₀ откл.</th>
+            <th>d₀ ном.2</th>
+            <th>d₀ откл.2</th>
+            <th>Глуб. l, мм</th>
+            <th>d₁ ном.</th>
+            <th>d₁ откл.</th>
+          </tr>
+        </thead>
+        <tbody id="pipe-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: CNC MACROS ===== -->
+<div id="cnc" class="page">
+  <h1 class="page-title">ЧПУ Макросы Fanuc</h1>
+  <p class="page-sub">Математические функции, операторы сравнения и управляющие конструкции</p>
+
+  <div class="card">
+    <div class="card-title">Математические функции</div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="cnc-search" placeholder="Поиск по команде или описанию..." oninput="searchCnc()">
+    </div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Команда</th><th>Описание</th></tr></thead>
+        <tbody id="cnc-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Операторы сравнения и управления</div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Оператор</th><th>Значение</th></tr></thead>
+        <tbody id="cnc-ops-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Примеры конструкций</div>
+    <div class="formula">
+      <b>WHILE</b>[#2 GE #6]<b>DO</b>1  — цикл пока #2 ≥ #6
+    </div>
+    <div class="formula">
+      <b>IF</b>[#2 EQ 20.4]<b>THEN</b>#3=0.1  — если #2 = 20.4
+    </div>
+    <div class="formula">
+      #3=0.3(<b>INCR</b> Y)  — приращение Y
+    </div>
+    <div class="formula">
+      #1=<b>SQRT</b>[<b>POW</b>[#2,2]+<b>POW</b>[#3,2]]  — длина вектора
+    </div>
+    <div class="formula">
+      #1=<b>ATAN</b>[#2]/<b>[</b>#3<b>]</b>  — угол в градусах
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: CUTTING SPEEDS ===== -->
+<div id="cutting" class="page">
+  <h1 class="page-title">Режимы резания</h1>
+  <p class="page-sub">Расчёт скорости резания, оборотов шпинделя, подачи и мощности</p>
+
+  <div class="card">
+    <div class="card-title">Скорость резания ↔ Обороты шпинделя</div>
+    <div class="formula">
+      <b>V</b> = π × D × n / 1000 &nbsp;|&nbsp; <b>n</b> = 1000 × V / (π × D)
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-group="cut" data-tab="cut-vton">V → n (об/мин)</button>
+      <button class="tab-btn" data-group="cut" data-tab="cut-ntov">n → V (м/мин)</button>
+    </div>
+    <div id="cut-vton" class="tab-content active" data-group="cut">
+      <div class="field-group">
+        <div class="field"><label>Скорость резания V (м/мин)</label><input type="number" id="cut-V" placeholder="150" step="1"></div>
+        <div class="field"><label>Диаметр инструмента D (мм)</label><input type="number" id="cut-D" placeholder="25" step="0.1"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" onclick="calcVtoN()">Рассчитать n</button></div>
+      <div id="cut-n-box" class="result-box">
+        <div class="result-label">Обороты шпинделя n</div>
+        <div class="result-value" id="cut-n-res">—</div>
+      </div>
+    </div>
+    <div id="cut-ntov" class="tab-content" data-group="cut">
+      <div class="field-group">
+        <div class="field"><label>Обороты шпинделя n (об/мин)</label><input type="number" id="cut-N2" placeholder="1910" step="1"></div>
+        <div class="field"><label>Диаметр инструмента D (мм)</label><input type="number" id="cut-D2" placeholder="25" step="0.1"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" onclick="calcNtoV()">Рассчитать V</button></div>
+      <div id="cut-v-box" class="result-box">
+        <div class="result-label">Скорость резания V</div>
+        <div class="result-value" id="cut-v-res">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Минутная подача</div>
+    <div class="formula">
+      <b>F</b> = fz × z × n &nbsp;(мм/мин) &nbsp;|&nbsp; <b>Vf</b> = f × n
+    </div>
+    <div class="field-group">
+      <div class="field"><label>Подача на зуб fz (мм/зуб)</label><input type="number" id="cut-fz" placeholder="0.08" step="0.001"></div>
+      <div class="field"><label>Число зубьев z</label><input type="number" id="cut-z" placeholder="4" step="1" min="1"></div>
+      <div class="field"><label>Обороты n (об/мин)</label><input type="number" id="cut-n-feed" placeholder="1910" step="1"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-primary" onclick="calcFeed()">Рассчитать подачу</button></div>
+    <div id="cut-feed-box" class="result-box">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">Минутная подача F</div><div class="result-value" id="cut-feed-res">—</div></div>
+        <div class="result-item"><div class="result-label">Подача на оборот f</div><div class="result-value" id="cut-frev-res">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Рекомендуемые скорости резания (справочник)</div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Материал</th><th>Твёрдость</th><th>Фрезерование V (м/мин)</th><th>Точение V (м/мин)</th><th>Сверление V (м/мин)</th></tr></thead>
+        <tbody>
+          <tr class="section-head"><td colspan="5">Стали</td></tr>
+          <tr><td>Ст 3, 10, 20 (мягкая сталь)</td><td>&lt;180 HB</td><td>120–200</td><td>200–300</td><td>25–35</td></tr>
+          <tr><td>Сталь 45 (среднеуглеродистая)</td><td>180–240 HB</td><td>80–150</td><td>150–250</td><td>18–28</td></tr>
+          <tr><td>Сталь 40Х, 30ХГСА</td><td>240–320 HB</td><td>60–120</td><td>100–180</td><td>12–20</td></tr>
+          <tr><td>Инструментальная сталь</td><td>320–400 HB</td><td>40–80</td><td>60–120</td><td>8–15</td></tr>
+          <tr><td>Закалённая сталь (HRC)</td><td>45–65 HRC</td><td>20–60 (CBN)</td><td>30–80 (CBN)</td><td>—</td></tr>
+          <tr class="section-head"><td colspan="5">Чугун и цветные металлы</td></tr>
+          <tr><td>Чугун СЧ (серый)</td><td>170–260 HB</td><td>80–150</td><td>100–200</td><td>20–30</td></tr>
+          <tr><td>Алюминий и сплавы</td><td>—</td><td>300–1000</td><td>400–1000</td><td>80–120</td></tr>
+          <tr><td>Латунь, бронза</td><td>—</td><td>150–400</td><td>200–500</td><td>40–80</td></tr>
+          <tr><td>Медь</td><td>—</td><td>100–300</td><td>200–400</td><td>30–60</td></tr>
+          <tr class="section-head"><td colspan="5">Жаропрочные и нержавеющие</td></tr>
+          <tr><td>Нержавейка 12Х18Н10Т (304)</td><td>180–220 HB</td><td>40–100</td><td>80–150</td><td>10–20</td></tr>
+          <tr><td>Жаропрочные (Inconel, Nimonic)</td><td>—</td><td>15–50</td><td>20–60</td><td>5–12</td></tr>
+          <tr><td>Титан и сплавы</td><td>30–40 HRC</td><td>30–80</td><td>40–100</td><td>8–15</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: METRIC THREAD ===== -->
+<div id="thread" class="page">
+  <h1 class="page-title">Метрическая резьба</h1>
+  <p class="page-sub">Диаметры сверления под нарезание метрической резьбы метчиком</p>
+
+  <div class="card">
+    <div class="card-title">Калькулятор диаметра сверления</div>
+    <div class="formula">
+      <b>d св.</b> = d − P &nbsp;&nbsp;(для стали и чугуна)
+    </div>
+    <div class="formula">
+      <b>d св.</b> = d − 1.05 × P &nbsp;&nbsp;(для алюминия и мягких сплавов)
+    </div>
+    <div class="field-group">
+      <div class="field"><label>Номинальный диаметр d (мм)</label><input type="number" id="thr-d" placeholder="10" step="0.5"></div>
+      <div class="field"><label>Шаг резьбы P (мм)</label><input type="number" id="thr-p" placeholder="1.5" step="0.25"></div>
+      <div class="field">
+        <label>Материал</label>
+        <select id="thr-mat">
+          <option value="1.0">Сталь, чугун</option>
+          <option value="1.05">Алюминий, латунь</option>
+          <option value="0.95">Твёрдые сплавы</option>
+        </select>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-primary" onclick="calcThreadDrill()">Рассчитать</button></div>
+    <div id="thr-result-box" class="result-box">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">Диаметр сверления</div><div class="result-value" id="thr-drill">—</div></div>
+        <div class="result-item"><div class="result-label">Внутренний диаметр d₁</div><div class="result-value" id="thr-d1">—</div></div>
+        <div class="result-item"><div class="result-label">Средний диаметр d₂</div><div class="result-value" id="thr-d2">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0">
+    <div style="padding:1rem 1rem 0.5rem"><div class="card-title" style="margin:0">Стандартные метрические резьбы ISO</div></div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Резьба</th><th>Шаг P (мм)</th><th>d₁ (мм)</th><th>d₂ (мм)</th>
+            <th>d св. (сталь)</th><th>d св. (алюм.)</th>
+          </tr>
+        </thead>
+        <tbody id="thread-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: FITS & TOLERANCES ===== -->
+<div id="fits" class="page">
+  <h1 class="page-title">Допуски и посадки</h1>
+  <p class="page-sub">Квалитеты IT, поля допусков вала и отверстия по ГОСТ/ISO</p>
+
+  <div class="card">
+    <div class="card-title">Единица допуска и квалитеты</div>
+    <div class="formula">
+      <b>i</b> = 0.45 × ∛D + 0.001 × D &nbsp;&nbsp;(единица допуска, мкм; D в мм)
+    </div>
+    <div class="field-group">
+      <div class="field"><label>Номинальный размер D (мм)</label><input type="number" id="fit-D" placeholder="50" step="1" min="1"></div>
+      <div class="field">
+        <label>Квалитет IT</label>
+        <select id="fit-IT">
+          <option value="7">IT6</option>
+          <option value="10" selected>IT7</option>
+          <option value="16">IT8</option>
+          <option value="25">IT9</option>
+          <option value="40">IT10</option>
+          <option value="64">IT11</option>
+          <option value="100">IT12</option>
+        </select>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-primary" onclick="calcTolerance()">Рассчитать</button></div>
+    <div id="fit-result-box" class="result-box">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">Единица допуска i</div><div class="result-value" id="fit-i">—</div></div>
+        <div class="result-item"><div class="result-label">Допуск IT (мкм)</div><div class="result-value" id="fit-IT-val">—</div></div>
+        <div class="result-item"><div class="result-label">Допуск IT (мм)</div><div class="result-value" id="fit-IT-mm">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Таблица квалитетов — значения допусков IT (мкм)</div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Диапазон D (мм)</th>
+            <th>IT5</th><th>IT6</th><th>IT7</th><th>IT8</th><th>IT9</th><th>IT10</th><th>IT11</th><th>IT12</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="highlight">до 3</td><td>4</td><td>6</td><td>10</td><td>14</td><td>25</td><td>40</td><td>60</td><td>100</td></tr>
+          <tr><td class="highlight">3–6</td><td>5</td><td>8</td><td>12</td><td>18</td><td>30</td><td>48</td><td>75</td><td>120</td></tr>
+          <tr><td class="highlight">6–10</td><td>6</td><td>9</td><td>15</td><td>22</td><td>36</td><td>58</td><td>90</td><td>150</td></tr>
+          <tr><td class="highlight">10–18</td><td>8</td><td>11</td><td>18</td><td>27</td><td>43</td><td>70</td><td>110</td><td>180</td></tr>
+          <tr><td class="highlight">18–30</td><td>9</td><td>13</td><td>21</td><td>33</td><td>52</td><td>84</td><td>130</td><td>210</td></tr>
+          <tr><td class="highlight">30–50</td><td>11</td><td>16</td><td>25</td><td>39</td><td>62</td><td>100</td><td>160</td><td>250</td></tr>
+          <tr><td class="highlight">50–80</td><td>13</td><td>19</td><td>30</td><td>46</td><td>74</td><td>120</td><td>190</td><td>300</td></tr>
+          <tr><td class="highlight">80–120</td><td>15</td><td>22</td><td>35</td><td>54</td><td>87</td><td>140</td><td>220</td><td>350</td></tr>
+          <tr><td class="highlight">120–180</td><td>18</td><td>25</td><td>40</td><td>63</td><td>100</td><td>160</td><td>250</td><td>400</td></tr>
+          <tr><td class="highlight">180–250</td><td>20</td><td>29</td><td>46</td><td>72</td><td>115</td><td>185</td><td>290</td><td>460</td></tr>
+          <tr><td class="highlight">250–315</td><td>23</td><td>32</td><td>52</td><td>81</td><td>130</td><td>210</td><td>320</td><td>520</td></tr>
+          <tr><td class="highlight">315–400</td><td>25</td><td>36</td><td>57</td><td>89</td><td>140</td><td>230</td><td>360</td><td>570</td></tr>
+          <tr><td class="highlight">400–500</td><td>27</td><td>40</td><td>63</td><td>97</td><td>155</td><td>250</td><td>400</td><td>630</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Типичные посадки (система отверстия)</div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Посадка</th><th>Обозначение</th><th>Характер сопряжения</th><th>Применение</th></tr></thead>
+        <tbody>
+          <tr class="section-head"><td colspan="4">Посадки с зазором</td></tr>
+          <tr><td class="highlight">H7/h6</td><td>Скользящая</td><td>Минимальный зазор = 0</td><td>Направляющие, шпиндели</td></tr>
+          <tr><td class="highlight">H7/g6</td><td>Ходовая</td><td>Гарантированный зазор</td><td>Подшипники скольжения, втулки</td></tr>
+          <tr><td class="highlight">H7/f7</td><td>Легкоходовая</td><td>Умеренный зазор</td><td>Коробки передач, опоры</td></tr>
+          <tr><td class="highlight">H8/e8</td><td>Широкоходовая</td><td>Увеличенный зазор</td><td>Грубые механизмы, c загрязнением</td></tr>
+          <tr class="section-head"><td colspan="4">Переходные посадки</td></tr>
+          <tr><td class="highlight">H7/k6</td><td>Плотная</td><td>Зазор или натяг ≈ 0</td><td>Шкивы, зубчатые колёса (разборные)</td></tr>
+          <tr><td class="highlight">H7/n6</td><td>Напряжённая</td><td>Преимущественно натяг</td><td>Зубчатые колёса, постоянные соединения</td></tr>
+          <tr class="section-head"><td colspan="4">Посадки с натягом</td></tr>
+          <tr><td class="highlight">H7/p6</td><td>Лёгкопрессовая</td><td>Малый натяг</td><td>Втулки, вкладыши</td></tr>
+          <tr><td class="highlight">H7/r6</td><td>Прессовая</td><td>Средний натяг</td><td>Бронзовые венцы, подшипники</td></tr>
+          <tr><td class="highlight">H7/s6</td><td>Горячая</td><td>Большой натяг</td><td>Постоянные соединения (запрессовка)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE: RPM <-> SPEED ===== -->
+<div id="speeds" class="page">
+  <h1 class="page-title">Об/мин ↔ м/мин</h1>
+  <p class="page-sub">Быстрый пересчёт оборотов шпинделя и скорости резания</p>
+
+  <div class="card">
+    <div class="card-title">Интерактивный калькулятор</div>
+    <div class="formula">
+      <b>V</b> (м/мин) = π × D (мм) × n (об/мин) / 1000
+    </div>
+    <div class="field-group">
+      <div class="field"><label>Диаметр D (мм)</label><input type="number" id="spd-D" placeholder="25" step="0.1" oninput="calcSpeedBoth()"></div>
+      <div class="field"><label>Обороты n (об/мин)</label><input type="number" id="spd-N" placeholder="1910" step="1" oninput="calcSpeedFromN()"></div>
+      <div class="field"><label>Скорость V (м/мин)</label><input type="number" id="spd-V" placeholder="150" step="1" oninput="calcSpeedFromV()"></div>
+    </div>
+    <div id="spd-result-box" class="result-box visible">
+      <div class="result-grid">
+        <div class="result-item"><div class="result-label">Обороты n</div><div class="result-value" id="spd-n-out">—</div></div>
+        <div class="result-item"><div class="result-label">Скорость V</div><div class="result-value" id="spd-v-out">—</div></div>
+        <div class="result-item"><div class="result-label">Окружная скорость</div><div class="result-value" id="spd-circ">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Таблица скоростей по диаметрам (об/мин → V, м/мин)</div>
+    <div class="field-group" style="margin-bottom:0.75rem">
+      <div class="field">
+        <label>Скорость резания V (м/мин)</label>
+        <input type="number" id="spd-tbl-V" placeholder="100" step="10" value="100" oninput="buildSpeedTable()">
+      </div>
+    </div>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>D (мм)</th>
+            <th>n при V/2</th>
+            <th>n при V</th>
+            <th>n при 2V</th>
+          </tr>
+        </thead>
+        <tbody id="speed-tbl-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/app.js"></script>
+</body>
+</html>
